@@ -16,6 +16,19 @@
                                     <th>Employee Email</th>
                                 </tr>
                             </thead>
+                            <tbody>
+                                @for(item of employeeList; track $index){
+                                    <tr>
+                                        <td>{{$index+1}}</td>
+                                        <td>{{item.empName}}</td>
+                                        <td>{{item.empcontactNo}}</td>
+                                        <td>{{item.empName}}</td>
+                                        <td><button class="btn btn-primary" (click)="onUpdate()">Edit</button></td>
+                                        <td><button class="btn btn-danger">Delete</button></td>
+                                    </td>
+                                    </tr>
+                                }
+                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -28,38 +41,44 @@
                 New Employee
             </div>
             <div class="card-body">
+               <form [formGroup]="employeeFOrm">
                 <div class="row">
                     <div class="col-6">
+                        <label for="">Employee Id</label>
+                        <input type="text" class="form-control" formControlName="empId">
+                    </div>
+                    <div class="col-6">
                         <label for="">Employee Name</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" formControlName="empName">
+                    </div>
+                    <div class="col-6">
+                        <label for="">Employee Contact</label>
+                        <input type="text" class="form-control" formControlName="empcontactNo">
                     </div>
                     <div class="col-6">
                         <label for="">EMployee City</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" formControlName="empCity">
                     </div>
                     <div class="col-6">
                         <label for="">Employee State</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="col-6">
-                        <label for="">Employee Email</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" formControlName="empState">
                     </div>
                     <div class="col-6">
                         <label for="">Employee Address</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" formControlName="empAddress">
                     </div>
                     <div class="col-6">
                         <label for="">Employee Pin-Code</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" formControlName="empPinccode">
                     </div>
                 </div>
                 <div class="row py-3">
                     <div class="col-6 text-center">
-                        <button class="btn btn-secondary">Reset</button>
-                        <button class="btn btn-success">Save</button>
+                        <button class="btn btn-secondary" type="button">Reset</button>
+                        <button class="btn btn-success" (click)="onSave()">Save</button>
                     </div>
                 </div>
+               </form>
             </div>
         </div>
     </div>
