@@ -49,4 +49,8 @@ export class AppComponent {
     localStorage.setItem("EmpDate", JSON.stringify(this.employeeList));
     this.empObj = new EmployeeModel1()
   }
+
+  onDelete(){
+    
+  }
 }
